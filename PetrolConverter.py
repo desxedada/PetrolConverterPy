@@ -12,111 +12,123 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-from ClickableLineEdit import ClickableLineEdit
+from DieselClickable import DieselClickable
+from RON95Clickable import RON95Clickable
 
 
 class Ui_ConvertWindow(object):
     def setupUi(self, ConvertWindow):
         if not ConvertWindow.objectName():
             ConvertWindow.setObjectName(u"ConvertWindow")
-        ConvertWindow.resize(336, 218)
-        ConvertWindow.setMinimumSize(QSize(336, 218))
-        ConvertWindow.setMaximumSize(QSize(336, 218))
+        ConvertWindow.resize(224, 141)
+        ConvertWindow.setMinimumSize(QSize(212, 141))
+        ConvertWindow.setMaximumSize(QSize(1184, 633))
         ConvertWindow.setContextMenuPolicy(Qt.NoContextMenu)
         ConvertWindow.setStyleSheet(u"font: 75 10.5pt \"MS Shell Dlg 2\";")
+        ConvertWindow.setToolButtonStyle(Qt.ToolButtonIconOnly)
+        ConvertWindow.setAnimated(False)
+        ConvertWindow.setDocumentMode(False)
+        ConvertWindow.setTabShape(QTabWidget.Rounded)
+        ConvertWindow.setDockNestingEnabled(False)
         self.centralwidget = QWidget(ConvertWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setMaximumSize(QSize(336, 196))
-        self.gridLayout_2 = QGridLayout(self.centralwidget)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.groupBox = QGroupBox(self.centralwidget)
-        self.groupBox.setObjectName(u"groupBox")
-        self.gridLayout_3 = QGridLayout(self.groupBox)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.dieselEdit = QLineEdit(self.groupBox)
-        self.dieselEdit.setObjectName(u"dieselEdit")
-
-        self.gridLayout_3.addWidget(self.dieselEdit, 4, 1, 1, 1)
-
-        self.label_6 = QLabel(self.groupBox)
-        self.label_6.setObjectName(u"label_6")
-
-        self.gridLayout_3.addWidget(self.label_6, 2, 2, 1, 1)
-
-        self.label_2 = QLabel(self.groupBox)
+        self.centralwidget.setMaximumSize(QSize(111111, 111111))
+        self.gridLayout = QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.label_2 = QLabel(self.centralwidget)
         self.label_2.setObjectName(u"label_2")
 
-        self.gridLayout_3.addWidget(self.label_2, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
 
-        self.label_4 = QLabel(self.groupBox)
+        self.dieselDisplayEdit = DieselClickable(self.centralwidget)
+        self.dieselDisplayEdit.setObjectName(u"dieselDisplayEdit")
+        self.dieselDisplayEdit.setStyleSheet(u"background-color: transparent")
+        self.dieselDisplayEdit.setReadOnly(True)
+
+        self.gridLayout.addWidget(self.dieselDisplayEdit, 2, 4, 1, 2)
+
+        self.label_4 = QLabel(self.centralwidget)
         self.label_4.setObjectName(u"label_4")
 
-        self.gridLayout_3.addWidget(self.label_4, 4, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_4, 2, 0, 1, 1)
 
-        self.label_3 = QLabel(self.groupBox)
-        self.label_3.setObjectName(u"label_3")
+        self.line = QFrame(self.centralwidget)
+        self.line.setObjectName(u"line")
+        self.line.setFrameShape(QFrame.VLine)
+        self.line.setFrameShadow(QFrame.Sunken)
 
-        self.gridLayout_3.addWidget(self.label_3, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.line, 0, 2, 3, 1)
 
-        self.priceEdit = QLineEdit(self.groupBox)
-        self.priceEdit.setObjectName(u"priceEdit")
-
-        self.gridLayout_3.addWidget(self.priceEdit, 0, 1, 1, 3)
-
-        self.label = QLabel(self.groupBox)
-        self.label.setObjectName(u"label")
-
-        self.gridLayout_3.addWidget(self.label, 0, 0, 1, 1)
-
-        self.ron95PriceEdit = QLineEdit(self.groupBox)
+        self.ron95PriceEdit = QLineEdit(self.centralwidget)
         self.ron95PriceEdit.setObjectName(u"ron95PriceEdit")
+        self.ron95PriceEdit.setStyleSheet(u"font: 75 12pt \"MS Shell Dlg 2\";")
 
-        self.gridLayout_3.addWidget(self.ron95PriceEdit, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.ron95PriceEdit, 1, 1, 1, 1)
 
-        self.ron97Edit = QLineEdit(self.groupBox)
-        self.ron97Edit.setObjectName(u"ron97Edit")
-
-        self.gridLayout_3.addWidget(self.ron97Edit, 2, 1, 1, 1)
-
-        self.ron95DisplayEdit = ClickableLineEdit(self.groupBox)
+        self.ron95DisplayEdit = RON95Clickable(self.centralwidget)
         self.ron95DisplayEdit.setObjectName(u"ron95DisplayEdit")
         self.ron95DisplayEdit.setFocusPolicy(Qt.TabFocus)
         self.ron95DisplayEdit.setStyleSheet(u"background-color: transparent")
         self.ron95DisplayEdit.setReadOnly(True)
 
-        self.gridLayout_3.addWidget(self.ron95DisplayEdit, 1, 4, 1, 1)
+        self.gridLayout.addWidget(self.ron95DisplayEdit, 1, 4, 1, 2)
 
-        self.label_7 = QLabel(self.groupBox)
-        self.label_7.setObjectName(u"label_7")
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
 
-        self.gridLayout_3.addWidget(self.label_7, 4, 2, 1, 1)
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
 
-        self.ron97DisplayEdit = ClickableLineEdit(self.groupBox)
-        self.ron97DisplayEdit.setObjectName(u"ron97DisplayEdit")
-        self.ron97DisplayEdit.setStyleSheet(u"background-color: transparent")
-        self.ron97DisplayEdit.setReadOnly(True)
+        self.dieselEdit = QLineEdit(self.centralwidget)
+        self.dieselEdit.setObjectName(u"dieselEdit")
+        self.dieselEdit.setStyleSheet(u"font: 75 12pt \"MS Shell Dlg 2\";")
 
-        self.gridLayout_3.addWidget(self.ron97DisplayEdit, 2, 4, 1, 1)
+        self.gridLayout.addWidget(self.dieselEdit, 2, 1, 1, 1)
 
-        self.dieselDisplayEdit = QLineEdit(self.groupBox)
-        self.dieselDisplayEdit.setObjectName(u"dieselDisplayEdit")
-        self.dieselDisplayEdit.setStyleSheet(u"background-color: transparent")
-        self.dieselDisplayEdit.setReadOnly(True)
+        self.priceEdit = QLineEdit(self.centralwidget)
+        self.priceEdit.setObjectName(u"priceEdit")
+        font = QFont()
+        font.setFamily(u"MS Shell Dlg 2")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
+        self.priceEdit.setFont(font)
+        self.priceEdit.setStyleSheet(u"font: 75 12pt \"MS Shell Dlg 2\";")
 
-        self.gridLayout_3.addWidget(self.dieselDisplayEdit, 4, 4, 1, 1)
+        self.gridLayout.addWidget(self.priceEdit, 0, 1, 1, 1)
 
-        self.label_5 = QLabel(self.groupBox)
-        self.label_5.setObjectName(u"label_5")
+        self.warningLabel = QLabel(self.centralwidget)
+        self.warningLabel.setObjectName(u"warningLabel")
 
-        self.gridLayout_3.addWidget(self.label_5, 1, 2, 1, 1)
+        self.gridLayout.addWidget(self.warningLabel, 3, 0, 1, 7)
 
-        self.saveButton = QPushButton(self.groupBox)
-        self.saveButton.setObjectName(u"saveButton")
+        self.saveBtn = QPushButton(self.centralwidget)
+        self.saveBtn.setObjectName(u"saveBtn")
+        self.saveBtn.setStyleSheet(u"QPushButton{border: none;}\n"
+"QPushButton:hover{\n"
+"	color: rgb(255, 202, 96);\n"
+"\n"
+"}\n"
+"\n"
+"QPushButtonl:pressed{\n"
+"	color:white\n"
+"}")
 
-        self.gridLayout_3.addWidget(self.saveButton, 5, 1, 1, 1)
+        self.gridLayout.addWidget(self.saveBtn, 0, 4, 1, 1)
 
+        self.pushButton = QPushButton(self.centralwidget)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setStyleSheet(u"QPushButton{border: none;}\n"
+"QPushButton:hover{\n"
+"	color: rgb(255, 202, 96);\n"
+"\n"
+"}\n"
+"\n"
+"QPushButtonl:pressed{\n"
+"	color:white\n"
+"}")
 
-        self.gridLayout_2.addWidget(self.groupBox, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.pushButton, 0, 5, 1, 1)
 
         ConvertWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(ConvertWindow)
@@ -129,15 +141,15 @@ class Ui_ConvertWindow(object):
     # setupUi
 
     def retranslateUi(self, ConvertWindow):
-        ConvertWindow.setWindowTitle(QCoreApplication.translate("ConvertWindow", u"Price to Petrol Converter", None))
-        self.groupBox.setTitle(QCoreApplication.translate("ConvertWindow", u"Converter", None))
-        self.label_6.setText(QCoreApplication.translate("ConvertWindow", u"To", None))
+        ConvertWindow.setWindowTitle("Converter")
         self.label_2.setText(QCoreApplication.translate("ConvertWindow", u"RON95", None))
         self.label_4.setText(QCoreApplication.translate("ConvertWindow", u"Diesel", None))
-        self.label_3.setText(QCoreApplication.translate("ConvertWindow", u"RON97", None))
-        self.label.setText(QCoreApplication.translate("ConvertWindow", u"Petrol Price", None))
-        self.label_7.setText(QCoreApplication.translate("ConvertWindow", u"To", None))
-        self.label_5.setText(QCoreApplication.translate("ConvertWindow", u"To", None))
-        self.saveButton.setText(QCoreApplication.translate("ConvertWindow", u"Save", None))
+        self.ron95PriceEdit.setPlaceholderText(QCoreApplication.translate("ConvertWindow", u"0.00", None))
+        self.label.setText(QCoreApplication.translate("ConvertWindow", u"$$", None))
+        self.dieselEdit.setPlaceholderText(QCoreApplication.translate("ConvertWindow", u"0.00", None))
+        self.priceEdit.setPlaceholderText(QCoreApplication.translate("ConvertWindow", u"0.00", None))
+        self.warningLabel.setText(QCoreApplication.translate("ConvertWindow", u"WarningMsg", None))
+        self.saveBtn.setText(QCoreApplication.translate("ConvertWindow", u"Save", None))
+        self.pushButton.setText(QCoreApplication.translate("ConvertWindow", u"Close", None))
     # retranslateUi
 

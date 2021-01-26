@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>cancel.svg</file>
+    <file>diskette.svg</file>
+  </qresource>
+</RCC>
